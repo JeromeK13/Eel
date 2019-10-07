@@ -2,15 +2,16 @@ import subprocess as sps
 import webbrowser as wbr
 
 import eel.chrome as chm
-import eel.electron as ele
 import eel.edge as edge
-#import eel.firefox as ffx      TODO
-#import eel.safari as saf       TODO
+import eel.electron as ele
+# import eel.firefox as ffx      TODO
+import eel.safari as saf
 
 _browser_paths = {}
 _browser_modules = {'chrome':   chm,
                     'electron': ele,
-                    'edge': edge}
+                    'edge': edge,
+                    'safari': saf}
 
 
 def _build_url_from_dict(page, options):
