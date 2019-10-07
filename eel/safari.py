@@ -7,16 +7,10 @@ import sys
 name = 'Safari'
 
 
-def run(path, options, start_urls):
-    if options['app_mode']:
-        for url in start_urls:
-            sps.Popen([path, '--app=%s' % url] +
-                      options['cmdline_args'],
-                      stdout=sps.PIPE, stderr=sps.PIPE, stdin=sps.PIPE)
-    else:
-        args = options['cmdline_args'] + start_urls
-        sps.Popen([path, '--new-window'] + args,
-                  stdout=sps.PIPE, stderr=sys.stderr, stdin=sps.PIPE)
+def run(_path, options, start_urls):
+    for url in start_urls:
+        cmd = 'open -a safari %s' % url
+        sps.Popen(cmd, stdout=sys.stdout, stderr=sys.stderr, stdin=sps.PIPE, shell=True)
 
 
 def find_path():
